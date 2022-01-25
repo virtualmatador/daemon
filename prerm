@@ -1,0 +1,5 @@
+if test "$1" = "remove" || test "$1" = "upgrade"
+then
+    systemctl stop ${CMAKE_PROJECT_NAME}
+    systemctl disable ${CMAKE_PROJECT_NAME}
+fi

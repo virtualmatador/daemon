@@ -1,0 +1,12 @@
+cmake_minimum_required(VERSION 3.18)
+if(NOT DEFINED DAEMON_TIMEOUT_STOP)
+    set(DAEMON_TIMEOUT_STOP 120)
+endif()
+if(NOT DEFINED DAEMON_WAIT_RESTART)
+    set(DAEMON_WAIT_RESTART 60)
+endif()
+configure_file("service.service" "${CMAKE_PROJECT_NAME}.service")
+configure_file("postinst" "${CMAKE_BINARY_DIR}/daemon/postinst")
+configure_file("prerm" "${CMAKE_BINARY_DIR}/daemon/prerm")
+install(FILES "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_PROJECT_NAME}.service"
+    DESTINATION "/etc/systemd/system")

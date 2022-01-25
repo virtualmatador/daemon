@@ -1,0 +1,15 @@
+[Unit]
+Description=${CMAKE_PROJECT_DESCRIPTION}
+
+[Service]
+Type=simple
+ExecStart=${CMAKE_PROJECT_NAME}
+ExecReload=kill -HUP $MAINPID
+UMask=0000
+TimeoutStopSec=${DAEMON_TIMEOUT_STOP}
+KillMode=process
+RestartSec=${DAEMON_WAIT_RESTART}
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

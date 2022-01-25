@@ -1,0 +1,5 @@
+if test "$1" = "configure"
+then
+    systemctl enable ${CMAKE_PROJECT_NAME}
+    systemctl start ${CMAKE_PROJECT_NAME}
+fi
