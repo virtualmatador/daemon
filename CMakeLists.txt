@@ -8,5 +8,9 @@ endif()
 configure_file("service.service" "${CMAKE_PROJECT_NAME}.service")
 configure_file("postinst" "${CMAKE_BINARY_DIR}/daemon/postinst")
 configure_file("prerm" "${CMAKE_BINARY_DIR}/daemon/prerm")
+set(CPACK_DEBIAN_PACKAGE_CONTROL_EXTRA
+    "${CMAKE_BINARY_DIR}/daemon/postinst;${CMAKE_BINARY_DIR}/daemon/prerm"
+    PARENT_SCOPE
+)
 install(FILES "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_PROJECT_NAME}.service"
     DESTINATION "/etc/systemd/system")
