@@ -1,5 +1,6 @@
 [Unit]
 Description=${CMAKE_PROJECT_DESCRIPTION}
+After=network-online.target
 
 [Service]
 Type=simple
