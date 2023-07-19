@@ -11,6 +11,6 @@ TimeoutStopSec=${DAEMON_TIMEOUT_STOP}
 KillMode=process
 RestartSec=${DAEMON_WAIT_RESTART}
 Restart=always
-
+${EXTRAS}
 [Install]
 WantedBy=multi-user.target
